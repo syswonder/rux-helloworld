@@ -1,0 +1,25 @@
+[build]
+compiler = "gcc"
+
+[os]
+name = "ruxos"
+services = []
+ulib = "ruxlibc"
+
+[os.platform]
+name = "aarch64-qemu-virt"
+mode = "release"
+log = "warn"
+
+[os.platform.qemu]
+graphic = "n"
+
+[[targets]]
+name = "helloworld"
+src = "./"
+src_only = ["main.c"]
+include_dir = "./"
+type = "exe"
+cflags = ""
+linker = "rust-lld -flavor gnu"
+ldflags = ""
